@@ -4,8 +4,9 @@
   "description": "add utilities function to Promise",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha",
-    "lint": "eslint lib test index.js"
+    "test": "mocha",
+    "lint": "eslint lib test index.js",
+    "doc": "jsdoc -c jsdoc-conf.json"
   },
   "keywords": [
     "Promise",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.4.0",
+    "jsdoc": "^3.4.0",
     "mocha": "^3.0.2"
   }
 }
