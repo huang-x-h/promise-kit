@@ -1,0 +1,21 @@
+{
+  "name": "promise-kit",
+  "version": "0.1.0",
+  "description": "add utilities function to Promise",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "lint": "eslint lib test index.js"
+  },
+  "keywords": [
+    "Promise",
+    "utilities"
+  ],
+  "author": "huang.xinghui <huang.x.hui@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.4.0",
+    "mocha": "^3.0.2"
+  }
+}
