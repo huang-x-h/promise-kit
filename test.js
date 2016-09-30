@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const promiseKit = require('../');
+const promiseKit = require('./');
 
 describe('promise kit test', function() {
   describe('eachLimit test', () => {
@@ -36,6 +36,30 @@ describe('promise kit test', function() {
         return item + 1;
       }).then((data) => {
         expect(data).to.eql([2, 3, 4, 5, 6]);
+        done();
+      });
+    })
+  })
+
+  describe('eachSeries test', () => {
+    it('initialValue test', (done) => {
+      promiseKit.eachSeries([1, 2, 3, 4, 5], (previousValue, item) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            return resolve(item + previousValue);
+          }, 1e2)
+        });
+      }, 0).then(function(data) {
+        expect(data).to.eql(15);
+        done();
+      });
+    })
+
+    it('pure function test', (done) => {
+      promiseKit.eachSeries([1, 2, 3, 4, 5], (previousValue, item) => {
+        return item + previousValue;
+      }, 0).then((data) => {
+        expect(data).to.eql(15);
         done();
       });
     })
